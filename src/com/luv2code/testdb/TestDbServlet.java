@@ -26,7 +26,7 @@ public class TestDbServlet extends HttpServlet {
 		String pass = "acEmployee";
 		
 		String jdbcUrl = "jdbc:mysql://localhost:3306/ac_employee_tracker?useSSL=false&serverTimezone=UTC";
-		String driver = "com.mysql.jdbc.Driver";
+		String driver = "com.mysql.cj.jdbc.Driver";
 		
 		//get connection to database
 		try {
