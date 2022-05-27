@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.luv2code.springdemo.dao.EmployeeDAO;
@@ -19,7 +20,7 @@ public class EmployeeController {
 	private EmployeeDAO employeeDAO;
 	
 	//need a controller method to show the initial HTML form
-	@RequestMapping("/list")
+	@GetMapping("/list")
 	public String listEmployees(Model theModel) {
 		
 		
