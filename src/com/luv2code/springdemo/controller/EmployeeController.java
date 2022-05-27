@@ -30,7 +30,7 @@ public class EmployeeController {
 		//add the customers to the model
 		theModel.addAttribute("employees", theEmployees);
 		
-		return "list-employees";
+		return "list-employees";	
 	}
 	//need a controller method to process the HTML form
 	
