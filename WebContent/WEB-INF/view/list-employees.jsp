@@ -51,7 +51,7 @@
 	</table>
 	<!-- put new button: Add Employee  -->
 	<input class=" btn btn-primary" type="button" value="Add Employee"
-			onclick="windown.location.href='showFormForAdd'; return false;" />
+			onclick="window.location.href='showFormForAdd'; return false;" />
 </div>
 </body>
 </html>
