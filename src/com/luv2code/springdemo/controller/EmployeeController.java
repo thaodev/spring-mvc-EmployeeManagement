@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.luv2code.springdemo.dao.EmployeeDAO;
 import com.luv2code.springdemo.entity.Employee;
 import com.luv2code.springdemo.service.EmployeeService;
 
@@ -37,11 +38,22 @@ public class EmployeeController {
 	//need a controller method to process the HTML form
 	@GetMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
+		//create a employee object
+		Employee employee = new Employee();
+		
+		//provide employee object to the model
+		theModel.addAttribute("employee", employee);
+		
 		return "employee-form";
 	}
 	
-	@GetMapping("/employeeRegisterSuccess")
-	public String showEmployeeRegisterSuccess() {
+	@PostMapping("/saveEmployee")
+	//@ModelAttribute binds form data to the object
+	public String saveEmployee(@ModelAttribute("employee") Employee theEmployee) {
+		
+		//save the customer using our service
+		employeeService.saveEmployee(theEmployee);
+		
 		return "employee-register";
 	}
 }
