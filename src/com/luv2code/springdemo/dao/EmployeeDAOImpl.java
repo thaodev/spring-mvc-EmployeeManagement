@@ -32,4 +32,13 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		return employees;
 	}
 
+	@Override
+	public void saveEmployee(Employee theEmployee) {
+		//get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		//save the employee to db
+		currentSession.save(theEmployee);
+	}
+
 }

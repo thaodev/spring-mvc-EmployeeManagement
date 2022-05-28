@@ -7,4 +7,6 @@ import com.luv2code.springdemo.entity.Employee;
 public interface EmployeeDAO {
 	
 	public List<Employee> getEmployees();
+
+	public void saveEmployee(Employee theEmployee);
 }
