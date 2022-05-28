@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.luv2code.springdemo.dao.EmployeeDAO;
 import com.luv2code.springdemo.entity.Employee;
+import com.luv2code.springdemo.service.EmployeeService;
 
 @Controller
 @RequestMapping("/employee")
@@ -17,7 +18,7 @@ public class EmployeeController {
 	
 	//need to inject the DAO
 	@Autowired
-	private EmployeeDAO employeeDAO;
+	private EmployeeService employeeService;
 	
 	//need a controller method to show the initial HTML form
 	@GetMapping("/list")
@@ -26,7 +27,7 @@ public class EmployeeController {
 		
 		
 		//get customers from the dao
-		List<Employee> theEmployees = employeeDAO.getEmployees();
+		List<Employee> theEmployees = employeeService.getEmployees();
 		
 		//add the customers to the model
 		theModel.addAttribute("employees", theEmployees);
