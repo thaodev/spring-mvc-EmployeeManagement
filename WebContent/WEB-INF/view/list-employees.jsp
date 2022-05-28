@@ -13,7 +13,8 @@
 
 </head>
 <body>
-	<div id="wrapper">
+<div class="container">
+	<div class=" col-xs-1 text_center">
 		<div id="header">
 			<h2>Employee Management Program</h2>
 		</div>
@@ -48,5 +49,9 @@
 		</tbody>
 		
 	</table>
+	<!-- put new button: Add Employee  -->
+	<input class=" btn btn-primary" type="button" value="Add Employee"
+			onclick="windown.location.href='showFormForAdd'; return false;" />
+</div>
 </body>
 </html>
