@@ -25,7 +25,6 @@ public class EmployeeController {
 	public String listEmployees(Model theModel) {
 		
 		
-		
 		//get customers from the dao
 		List<Employee> theEmployees = employeeService.getEmployees();
 		
@@ -34,6 +33,15 @@ public class EmployeeController {
 		
 		return "list-employees";	
 	}
-	//need a controller method to process the HTML form
 	
+	//need a controller method to process the HTML form
+	@GetMapping("/showFormForAdd")
+	public String showFormForAdd(Model theModel) {
+		return "employee-form";
+	}
+	
+	@GetMapping("/employeeRegisterSuccess")
+	public String showEmployeeRegisterSuccess() {
+		return "employee-register";
+	}
 }
