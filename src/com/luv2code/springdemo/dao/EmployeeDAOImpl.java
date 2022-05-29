@@ -38,7 +38,19 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		//save the employee to db
-		currentSession.save(theEmployee);
+		currentSession.saveOrUpdate(theEmployee);
+	}
+
+	@Override
+	public Employee getEmployee(int theId) {
+		//get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		//retrieve/read from database using the primary key
+		Employee theEmployee = currentSession.get(Employee.class, theId);
+	
+		return theEmployee;
+	
 	}
 
 }
