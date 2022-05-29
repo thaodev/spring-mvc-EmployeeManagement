@@ -23,8 +23,8 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		//get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		//create a query
-		Query<Employee> theQuery = currentSession.createQuery("from Employee", Employee.class);
+		//create a query .. sort by first name
+		Query<Employee> theQuery = currentSession.createQuery("from Employee order by firstName", Employee.class);
 		
 		//execute query and get result list
 		List<Employee> employees = theQuery.getResultList();
