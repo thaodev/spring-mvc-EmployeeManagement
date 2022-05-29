@@ -53,4 +53,16 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	
 	}
 
+	@Override
+	public void deleteEmployee(int theId) {
+		//get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();	
+		
+		//delete object with primary key
+		Query theQuery = currentSession.createQuery("delete from Employee where id=:employeeId");
+		theQuery.setParameter("employeeId", theId);
+		
+		theQuery.executeUpdate();
+	}
+
 }
