@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.luv2code.springdemo.entity.Employee;
 import com.luv2code.springdemo.service.EmployeeService;
@@ -55,5 +56,20 @@ public class EmployeeController {
 		employeeService.saveEmployee(theEmployee);
 		
 		return "employee-register";
+	}
+	
+	@GetMapping("/showFormForUpdate")
+	public String showFormForUpdate(@RequestParam("employeeId") int theId,
+							Model theModel) {
+		
+		//get the employee from the database
+		Employee theEmployee = employeeService.getEmployee(theId);
+		
+		//set employee as a model attribute to pre-populate the form
+		theModel.addAttribute("employee", theEmployee);
+		
+		//send over to our form
+		
+		return "employee-form";
 	}
 }
