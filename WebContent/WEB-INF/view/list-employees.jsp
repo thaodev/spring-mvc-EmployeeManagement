@@ -30,6 +30,7 @@
 				<th>Last Name</th>
 				<th>Email</th>
 				<th>Year Born</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 			
@@ -38,11 +39,26 @@
 			<!-- loop over and print our customers -->
 			<c:forEach var="tempEmployee" items="${employees}">
 
+			<!-- construct an update link with employee id-->	
+			<c:url var="updateLink" value="showFormForUpdate">
+				<c:param name="employeeId" value="${tempEmployee.id}"/>
+			</c:url>	
+			
+			<!-- construct an update link with employee id-->	
+			<c:url var="deleteLink" value="deleteEmployee">
+				<c:param name="employeeId" value="${tempEmployee.id}"/>
+			</c:url>												
 				<tr>
 					<td>${tempEmployee.firstName}</td>
 					<td>${tempEmployee.lastName}</td>
 					<td>${tempEmployee.email}</td>
 					<td>${tempEmployee.yearBorn}</td>
+					<td>
+						<!-- display the update link  -->
+						<a href="${updateLink}">Update</a> |
+						<a href="${deleteLink}">Delete</a>
+						
+					</td>
 				</tr>
 
 			</c:forEach>
